@@ -7,10 +7,6 @@ points:
         rotate: 5
 
       columns:
-        outer:
-          key:
-            spread: cx
-            column_net: P0
         pinky:
           key:
             spread: cx
@@ -48,6 +44,20 @@ points:
           row_net: P7
         num:
           row_net: P6
+    outer:
+      anchor:
+        ref: main_pinky_home
+        shift: [-18, 2]
+      columns:
+        outer:
+          key:
+            spread: cx
+            column_net: P0
+      rows:
+        top:
+          row_net: P7
+        bottom:
+          row_net: P8
     thumbfan:
       anchor:
         ref: main_inner_bottom
@@ -110,57 +120,6 @@ pcbs:
           ref: main_inner_num
           shift: [-2, -2]
           rotate: 90
-      diode:
-        what: diode
-        where: true
-        params:
-          from: "{{colrow}}"
-          to: "{{row_net}}"
-        adjust:
-          shift: [7.8, -3.5]
-          rotate: 90
-        led:
-          what: sk6812mini
-          where: true
-          adjust:
-            shift: [0, -5]
-          params:
-            din: "{{led_in}}"
-            dout: "{{led_out}}"
-            cutout: true
-      # Reset switch (horizontal community version)
-      horizontal_reset:
-        what: EVQPUC
-        params: 
-          side: B
-          from: GND
-          to: RST 
-        where:
-          ref: matrix_sixth_top
-          shift: [9.0, 2.8]
-          rotate: -90.0
-      # Battery jack
-      jstph:
-        what: jstph
-        where:
-          ref: matrix_fourth_home
-          shift: [-7, 5.5]
-          rotate: 90
-        params:
-            side: B
-            pos: pos
-            neg: GND
-      front_text: &text
-        what: text
-        where: &textWhere
-            ref: main_fourth_num
-            shift: [-8.7, 5.5]
-        params: &textParams
-            text: hormesis by krl berg
-            justify: left
-            h_size: 3.0
-            v_size: 3.0
-            thickness: 0.4
           
 cases:
   plate: 
