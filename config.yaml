@@ -1,6 +1,6 @@
 units:
   screwThreadRadius: 0.5
-  screwPCBRadius: 4.0
+  screwPCBRadius: 3.0
   px: cx + 2
   py: cy + 2
 
