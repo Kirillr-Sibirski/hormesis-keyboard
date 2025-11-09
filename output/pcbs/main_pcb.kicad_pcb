@@ -3407,7 +3407,7 @@
             )
         
 
-            (gr_text "by karl ryberg" (at 150 152.5 0) (layer B.SilkS)
+            (gr_text "by karl ryberg" (at 145 152.5 0) (layer B.SilkS)
                 (effects (font (size 3 3) (thickness 0.4) ) (justify mirror left))
             )
         
@@ -5093,7 +5093,7 @@
         (descr "JST PH series connector, S2B-PH-K, side entry type, through hole, Datasheet: http://www.jst-mfg.com/product/pdf/eng/ePH.pdf")
         (tags "connector jst ph")
 
-        (at 169.5 81 90)
+        (at 170 77.5 90)
 
         
         (fp_text reference "JST1" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
@@ -5124,7 +5124,7 @@
         (descr "JST PH series connector, S2B-PH-K, side entry type, through hole, Datasheet: http://www.jst-mfg.com/product/pdf/eng/ePH.pdf")
         (tags "connector jst ph")
 
-        (at 168.5 81 90)
+        (at 167.5 77.5 90)
 
         
         (fp_text reference "JST2" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))

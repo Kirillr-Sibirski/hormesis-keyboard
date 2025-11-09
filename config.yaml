@@ -241,7 +241,7 @@ pcbs:
         <<: *text
         where: &textWhere
           <<: *textWhere
-          shift: [150, -152.5]
+          shift: [145, -152.5]
         params: &textParams
           <<: *textParams
           layer: B.SilkS
@@ -273,7 +273,7 @@ pcbs:
       jstph:
         what: jstph
         where:
-          shift: [169.5, -81]
+          shift: [170, -77.5]
           rotate: 90
         params:
           side: B
@@ -282,7 +282,7 @@ pcbs:
       jstph_front:
         what: jstph
         where:
-          shift: [167.5, -81]
+          shift: [167.5, -77.5]
           rotate: 90
         params:
           side: F
