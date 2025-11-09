@@ -1,6 +1,4 @@
 units:
-  screwThreadRadius: 0.5
-  screwPCBRadius: 3.0
   px: cx + 2
   py: cy + 2
 
@@ -30,7 +28,7 @@ points:
         pinky:
           key:
             spread: cx
-            bind: [16, 0, 0, 3]
+            bind: [16, 0, 0, 0]
             column_net: P1
           rows:
             bottom:
@@ -129,7 +127,7 @@ points:
         outer:
           key:
             spread: cx
-            bind: [33, 0, 0, 3]
+            bind: [33, 0, 0, 0]
             column_net: P0
       rows:
         top:
@@ -156,7 +154,7 @@ points:
             spread: 21
             splay: -18
             origin: [-12, -9]
-            bind: [3.3, 2, 0, 4]
+            bind: [0.6, 2, 0, 4]
             column_net: P4
             led_in: "rgb_{{name}}"
             led_out: rgb_thumbfan_far
@@ -165,7 +163,7 @@ points:
             spread: 21
             splay: -10
             origin: [-10, -9]
-            bind: [3, 0, 0, 4]
+            bind: [0.3, 0, 0, 4]
             column_net: P5
             led_in: "rgb_{{name}}"
             # no led_out
@@ -220,6 +218,15 @@ pcbs:
         where:
           shift: [99.875, -75.375]
           rotate: 0
+      horizontal_reset_front:
+        what: EVQPUC
+        params:
+          side: F
+          from: GND
+          to: RST
+        where:
+          shift: [99.875, -75.375]
+          rotate: 0
       front_text: &text
         what: text
         where: &textWhere
@@ -230,12 +237,14 @@ pcbs:
           h_size: 4.0
           v_size: 4.0
           thickness: 0.5
-      back_text: &text
-        what: text
+      back_text:
+        <<: *text
         where: &textWhere
-          ref: main_middle_bottom
-          shift: [-115.5, 152.5]
+          <<: *textWhere
+          shift: [150, -152.5]
         params: &textParams
+          <<: *textParams
+          layer: B.SilkS
           text: by karl ryberg
           justify: mirror left
           h_size: 3.0
@@ -270,53 +279,66 @@ pcbs:
           side: B
           pos: pos
           neg: GND
+      jstph_front:
+        what: jstph
+        where:
+          shift: [167.5, -81]
+          rotate: 90
+        params:
+          side: F
+          pos: pos
+          neg: GND
       # Battery on/off switch
       battery_switch:
         what: switch_power
         where:
-          shift: [113, -74.765]
+          shift: [113, -75]
           rotate: 90
         params:
           reverse: true
           from: pos
           to: RAW
       # Mounting holes
-      hole_thumb_top:
-        what: mountinghole
-        where:
-          shift: [217.5, -168]
-      hole_right_top:
-        what: mountinghole
-        where:
-          shift: [179.5, -76]
-      hole_left_bottom:
-        what: mountinghole
-        where:
-          shift: [89, -157]
-      hole_left_second_bottom:
-        what: mountinghole
-        where:
-          shift: [71, -140.5]
-      hole_thumb_left:
-        what: mountinghole
-        where:
-          shift: [173, -168]
-      hole_center_bottom:
-        what: mountinghole
-        where:
-          shift: [133, -157]
-      hole_center_left:
-        what: mountinghole
-        where:
-          shift: [111, -112.5]
-      hole_center_right:
-        what: mountinghole
-        where:
-          shift: [165, -133.5]
-      hole_left_top:
-        what: mountinghole
-        where:
-          shift: [71, -75.5]
+      # hole_thumb_top:
+      #   what: mountinghole
+      #   where:
+      #     shift: [217.5, -168]
+      # hole_right_top:
+      #   what: mountinghole
+      #   where:
+      #     shift: [179.5, -76]
+      # hole_left_bottom:
+      #   what: mountinghole
+      #   where:
+      #     shift: [88.5, -157]
+      # hole_left_second_bottom:
+      #   what: mountinghole
+      #   where:
+      #     shift: [70.5, -140]
+      # hole_thumb_left:
+      #   what: mountinghole
+      #   where:
+      #     shift: [174, -160.5]
+      # hole_center_bottom:
+      #   what: mountinghole
+      #   where:
+      #     shift: [133, -157]
+      # hole_center_left:
+      #   what: mountinghole
+      #   where:
+      #     shift: [111, -112.5]
+      # hole_center_right:
+      #   what: mountinghole
+      #   where:
+      #     shift: [165, -133.5]
+      # hole_left_top:
+      #   what: mountinghole
+      #   where:
+      #     shift: [70.5, -76]
+      # hole_center_top:
+      #   what: mountinghole
+      #   where:
+      #     shift: [147.5, -99]
 cases:
   plate:
     - name: leftcutout
