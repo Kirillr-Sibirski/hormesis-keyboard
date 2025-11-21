@@ -112,9 +112,9 @@
 			(subtractmaskfromsilk no)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "gerber")
 		)
 	)
 	(net 0 "")
@@ -3196,12 +3196,12 @@
 	(footprint "ceoloide:mcu_supermini_nrf52840"
 		(layer "F.Cu")
 		(uuid "1bdfa213-8409-496c-9321-70501393cf3d")
-		(at 81.725 90.2)
+		(at 81.6 90.2)
 		(property "Reference" "MCU1"
 			(at 0 -15 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "b1920d25-0c0b-4c27-8d31-04abfd3b75bf")
+			(uuid "e7bf7da4-df03-4340-ba70-8d1dc51d8f13")
 			(effects
 				(font
 					(size 1 1)
@@ -3212,7 +3212,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "59ff9477-a8c6-4f09-9e22-8f89e35643d0")
+			(uuid "ffb28160-b21f-4bf2-8bf6-34b9ff557050")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3224,7 +3224,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f1f4ab72-1dc4-45ec-9e30-6c812e6cca31")
+			(uuid "b5627d0d-4b55-4543-b764-e82bde40fdff")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3236,7 +3236,7 @@
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1957806f-d73e-4a20-b957-a720a1898cc3")
+			(uuid "9ed8ecf2-96b9-4f02-ae50-b797098b3e9e")
 			(effects
 				(font
 					(size 1.27 1.27)

@@ -1,0 +1,197 @@
+units:
+  px: cx + 2
+  py: cy + 2
+
+  pushX: (cx / 2)
+  pushY: (cy / 2)
+
+  padX: pushX + 2
+  padY: pushY + 2
+
+points:
+  key.padding: cy
+  zones:
+    main:
+      anchor:
+        # Shift the PCB slightly to the right and down, otherwise it's weirdly positioned outside of the main sheet in KiCad
+        shift: [100, -150]
+      rows:
+        bottom:
+          # row_net: P9
+        home:
+          # row_net: P8
+        top:
+          # row_net: P7
+        num:
+          # row_net: P6
+      columns:
+        pinky:
+          key:
+            spread: cx
+            bind: [16, 0, 0, 0]
+            # column_net: P1
+          rows:
+            bottom:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_ring_bottom
+            home:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_pinky_bottom
+            top:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_outer_top
+            num:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_pinky_top
+        ring:
+          key:
+            stagger: 12
+            spread: cx
+            bind: [4, 0, 12, 0]
+            # column_net: P2
+          rows:
+            bottom:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_ring_home
+            home:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_ring_top
+            top:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_middle_top
+            num:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_pinky_num
+        middle:
+          key:
+            stagger: 4
+            spread: cx
+            bind: [0, 0, 16, 0]
+            # column_net: P3
+          rows:
+            bottom:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_index_bottom
+            home:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_middle_bottom
+            top:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_middle_home
+            num:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_ring_num
+        index:
+          key:
+            stagger: -8
+            spread: cx
+            bind: [8, 0, 8, 0]
+            # column_net: P4
+          rows:
+            bottom:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_index_home
+            home:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_index_top
+            top:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_inner_top
+            num:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_middle_num
+        inner:
+          key:
+            stagger: -2
+            spread: cx
+            bind: [10, 0, 0, 0]
+            # column_net: P5
+          rows:
+            bottom:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_thumbfan_near
+            home:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_inner_bottom
+            top:
+              # led_in: "rgb_{{name}}"
+              # led_out: rgb_main_inner_home
+            num:
+              # led_in: P21
+              # led_out: rgb_main_index_num
+    outer:
+      anchor:
+        ref: main_pinky_home
+        shift: [-18, 0]
+      columns:
+        outer:
+          key:
+            spread: cx
+            bind: [0, 0, 0, 0]
+            # column_net: P0
+      rows:
+        top:
+          # row_net: P7
+          # led_in: "rgb_{{name}}"
+          # led_out: rgb_main_outer_home
+        home:
+          # row_net: P8
+          # led_in: "rgb_{{name}}"
+          # led_out: rgb_main_pinky_home
+    thumbfan:
+      anchor:
+        ref: main_inner_bottom
+        shift: [-10, -17]
+      columns:
+        near:
+          key:
+            bind: [0, 3, 0, 0]
+            # column_net: P3
+            # led_in: "rgb_{{name}}"
+            # led_out: rgb_thumbfan_home
+        home:
+          key:
+            spread: 21
+            splay: -18
+            origin: [-12, -9]
+            bind: [0.6, 2, 0, 4]
+            # column_net: P4
+            # led_in: "rgb_{{name}}"
+            # led_out: rgb_thumbfan_far
+        far:
+          key:
+            spread: 21
+            splay: -10
+            origin: [-10, -9]
+            bind: [0.3, 0, 0, 4]
+            # column_net: P5
+            # led_in: "rgb_{{name}}"
+            # no led_out
+      rows:
+        thumb:
+          # row_net: P10
+outlines:
+  main:
+    - where: true
+      bound: true
+      what: rectangle
+      size: [cx + 2, cy + 2]
+      fillet: 2
+  leftkeys:
+    - where: true
+      what: rectangle
+      size: [14, 14]
+  leftcutout:
+    - name: main
+    - operation: subtract
+      name: leftkeys
+
+pcbs:
+  main_pcb:
+    outlines:
+      main:
+        outline: main
+cases:
+  plate:
+    - name: leftcutout
+      extrude: 1.2
