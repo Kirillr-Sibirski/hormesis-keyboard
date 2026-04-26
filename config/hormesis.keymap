@@ -7,6 +7,15 @@
 #define FN 1
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_studio_unlock {
+            timeout-ms = <1000>;
+            key-positions = <44 49>;
+            bindings = <&studio_unlock>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
