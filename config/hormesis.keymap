@@ -1,0 +1,35 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+#include <dt-bindings/zmk/rgb.h>
+
+#define FN 1
+
+/ {
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "Base";
+            bindings = <
+                &kp N1    &kp N2    &kp N3    &kp N4    &kp N5               &kp N6    &kp N7    &kp N8    &kp N9    &kp N0
+                &kp TAB   &kp Q     &kp W     &kp E     &kp R     &kp T      &kp Y     &kp U     &kp I     &kp O     &kp P     &kp ESC
+                &kp CAPS  &kp A     &kp S     &kp D     &kp F     &kp G      &kp H     &kp J     &kp K     &kp L     &kp SEMI  &kp LSHFT
+                &kp Z     &kp X     &kp C     &kp V     &kp B               &kp N     &kp M     &kp COMMA &kp DOT   &kp SLASH
+                                       &kp LCTRL &kp LALT  &kp LGUI          &kp SPACE &mo FN    &kp BSPC
+            >;
+        };
+
+        fn_layer {
+            display-name = "Fn";
+            bindings = <
+                &kp F1              &kp F2       &kp F3       &kp F4       &kp F5                    &kp F6          &kp F7           &kp F8           &kp F9           &kp F10
+                &kp GRAVE           &kp EXCL     &kp AT       &kp HASH     &kp DLLR    &kp PRCNT   &kp CARET      &kp AMPS        &kp ASTRK       &kp LPAR        &kp RPAR        &kp DEL
+                &trans              &trans       &kp MINUS    &kp EQUAL    &kp LBKT    &kp RBKT    &kp LEFT       &kp DOWN        &kp UP          &kp RIGHT       &kp SQT         &kp ENTER
+                &bt BT_CLR          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3          &bt BT_SEL 4    &rgb_ug RGB_TOG &rgb_ug RGB_HUI &rgb_ug RGB_SAI &kp BSLH
+                                       &out OUT_USB &out OUT_BLE &out OUT_TOG       &rgb_ug RGB_BRI &rgb_ug RGB_EFF &bootloader
+            >;
+        };
+    };
+};

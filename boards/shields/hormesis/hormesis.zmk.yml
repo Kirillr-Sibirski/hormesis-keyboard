@@ -1,0 +1,13 @@
+file_format: "1"
+id: hormesis
+name: Hormesis
+type: shield
+url: https://github.com/Kirillr-Sibirski/zmk-config-hormesis-v2
+requires:
+  - pro_micro
+features:
+  - keys
+  - underglow
+siblings:
+  - hormesis_left
+  - hormesis_right
